@@ -75,7 +75,7 @@ private:
 
 	void periodic_update(const uavcan::TimerEvent &);
 
-	bool is_anticolision_on(LightMode mode);
+	bool check_light_state(LightMode mode);
 
 	uavcan::equipment::indication::RGB565 rgb888_to_rgb565(uint8_t red, uint8_t green, uint8_t blue);
 

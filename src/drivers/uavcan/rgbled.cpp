@@ -149,7 +149,7 @@ void UavcanRGBController::periodic_update(const uavcan::TimerEvent &)
 			break;
 
 		case LightFunction::AntiCollision:
-			uint8_t brightness = is_anticolision_on(static_cast<LightMode>(_param_mode_anti_col.get())) ? 255 : 0;
+			uint8_t brightness = check_light_state(static_cast<LightMode>(_param_mode_anti_col.get())) ? 255 : 0;
 			cmd.color = rgb888_to_rgb565(brightness, brightness, brightness);
 			break;
 		}
@@ -160,7 +160,7 @@ void UavcanRGBController::periodic_update(const uavcan::TimerEvent &)
 	_uavcan_pub_lights_cmd.broadcast(light_command);
 }
 
-bool UavcanRGBController::is_anticolision_on(LightMode mode)
+bool UavcanRGBController::check_light_state(LightMode mode)
 {
 	actuator_armed_s armed{};
 	_armed_sub.copy(&armed);
