@@ -149,8 +149,8 @@ void UavcanRGBController::periodic_update(const uavcan::TimerEvent &)
 			break;
 
 		case LightFunction::AntiCollision:
-			uint8_t brigtness = is_anticolision_on(static_cast<LightMode>(_param_mode_anti_col.get())) ? 255 : 0;
-			cmd.color = rgb888_to_rgb565(brigtness, brigtness, brigtness);
+			uint8_t brightness = is_anticolision_on(static_cast<LightMode>(_param_mode_anti_col.get())) ? 255 : 0;
+			cmd.color = rgb888_to_rgb565(brightness, brightness, brightness);
 			break;
 		}
 
