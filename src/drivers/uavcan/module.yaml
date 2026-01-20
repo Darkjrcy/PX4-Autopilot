@@ -1,4 +1,4 @@
-__max_num_uavcan_lights: &max_num_uavcan_lights 6 # Needs to be equal to MAX_NUM_UAVCAN_LIGHTS constant
+__max_num_uavcan_lights: &max_num_uavcan_lights 2 # NOTE: This value must match MAX_NUM_UAVCAN_LIGHTS in rgbled.hpp
 
 module_name: UAVCAN
 parameters:

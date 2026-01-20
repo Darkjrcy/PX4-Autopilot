@@ -54,8 +54,8 @@ private:
 	// Max update rate to avoid excessive bus traffic
 	static constexpr unsigned MAX_RATE_HZ = 20;
 
-	// Maximum number of configurable lights
-	static constexpr uint8_t MAX_NUM_UAVCAN_LIGHTS = 6;
+	// NOTE: This value must match __max_num_uavcan_lights in module.yaml
+	static constexpr uint8_t MAX_NUM_UAVCAN_LIGHTS = 2;
 
 	// Light function types
 	enum class LightFunction : uint8_t {
