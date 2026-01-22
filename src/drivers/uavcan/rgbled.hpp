@@ -59,8 +59,15 @@ private:
 
 	// Light function types
 	enum class LightFunction : uint8_t {
-		Status = 0,        // System status colors from led_control
-		AntiCollision = 1  // White beacon based on arm state
+		Status = 0,                    // System status colors from led_control
+		AntiCollision = 1,             // White beacon based on arm state
+		RedNavigation = 2,             // Red navigation light
+		GreenNavigation = 3,           // Green navigation light
+		WhiteNavigation = 4,           // White navigation light
+		StatusOrAntiCollision = 5,     // Status when LGT_MODE inactive, white beacon when active
+		StatusOrRedNavigation = 6,     // Status when LGT_MODE inactive, red nav when active
+		StatusOrGreenNavigation = 7,   // Status when LGT_MODE inactive, green nav when active
+		StatusOrWhiteNavigation = 8    // Status when LGT_MODE inactive, white nav when active
 	};
 
 	enum class LightMode : uint8_t {
@@ -101,6 +108,6 @@ private:
 
 	DEFINE_PARAMETERS(
 		(ParamInt<px4::params::UAVCAN_LGT_NUM>) _param_lgt_num,
-		(ParamInt<px4::params::UAVCAN_LGT_ANTCL>) _param_mode_anti_col
+		(ParamInt<px4::params::UAVCAN_LGT_MODE>) _param_lgt_mode
 	)
 };
