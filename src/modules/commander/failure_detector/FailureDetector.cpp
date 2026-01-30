@@ -258,17 +258,21 @@ void FailureDetector::updateImbalancedPropStatus()
 
 void FailureDetector::updateMotorStatus(const vehicle_status_s &vehicle_status, const esc_status_s &esc_status)
 {
-	// What need to be checked:
-	//
-	// 1. ESC telemetry disappears completely -> dead ESC or power loss on that ESC
-	// 2. ESC failures like overvoltage, overcurrent etc. But DShot driver for example is not populating the field 'esc_report.failures'
-	// 3. Motor current too low. Compare drawn motor current to expected value from a parameter
-	// -- ESC voltage does not really make sense and is highly dependent on the setup
+	// This check can be configured via <param>FD_ACT_EN</param> parameter.
+
+	if (!_param_fd_act_en.get()) {
+		_failure_detector_status.flags.motor = false;
+		return;
+	}
+
+	// 1. Telemetry times out -> communication or power lost on that ESC
+	// 2. Too low current draw compared to commanded thrust
+	// Overvoltage, overcurrent do not have checks yet esc_report.failures are handled separately
 
 	const hrt_abstime now = hrt_absolute_time();
 	const bool is_armed = vehicle_status.arming_state == vehicle_status_s::ARMING_STATE_ARMED;
 
-	// Clear the failure mask at the start --> Can recover when issue is resolved!!
+	// Clear the failure mask at the start --> Can recover when issue is resolved!
 	_motor_failure_mask = 0;
 
 
@@ -298,6 +302,7 @@ void FailureDetector::updateMotorStatus(const vehicle_status_s &vehicle_status, 
 		const bool timeout = now > esc_status.esc[i].timestamp + 300_ms;
 		const bool is_offline = (esc_status.esc_online_flags & (1 << i)) == 0;
 		const float current = esc_status.esc[i].esc_current;
+		const bool esc_flag = esc_status.esc[i].failures != 0;
 
 		// Set failure bits for this motor
 		if (timeout) {
@@ -305,6 +310,10 @@ void FailureDetector::updateMotorStatus(const vehicle_status_s &vehicle_status, 
 		}
 
 		if (is_offline) {
+			_motor_failure_mask |= (1u << actuator_function_index);
+		}
+
+		if (esc_flag) {
 			_motor_failure_mask |= (1u << actuator_function_index);
 		}
 
