@@ -1,7 +1,5 @@
 # HeaterStatus (UORB message)
 
-
-
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/HeaterStatus.msg)
 
 ```c

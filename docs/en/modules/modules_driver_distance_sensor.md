@@ -4,7 +4,6 @@
 
 Source: [drivers/distance_sensor/broadcom/afbrs50](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/broadcom/afbrs50)
 
-
 ### Description
 
 Driver for the Broadcom AFBRS50.
@@ -12,10 +11,13 @@ Driver for the Broadcom AFBRS50.
 ### Examples
 
 Attempt to start driver on a specified serial device.
+
 ```
 afbrs50 start
 ```
+
 Stop driver
+
 ```
 afbrs50 stop
 ```
@@ -63,7 +65,6 @@ gy_us42 <command> [arguments...]
 
 Source: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/leddar_one)
 
-
 ### Description
 
 Serial bus driver for the LeddarOne LiDAR.
@@ -75,10 +76,13 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/leddar_one.html
 ### Examples
 
 Attempt to start driver on a specified serial device.
+
 ```
 leddar_one start -d /dev/ttyS1
 ```
+
 Stop driver
+
 ```
 leddar_one stop
 ```
@@ -99,7 +103,6 @@ leddar_one <command> [arguments...]
 ## lightware_laser_i2c
 
 Source: [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_i2c)
-
 
 ### Description
 
@@ -133,7 +136,6 @@ lightware_laser_i2c <command> [arguments...]
 
 Source: [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_laser_serial)
 
-
 ### Description
 
 Serial bus driver for the LightWare SF02/F, SF10/a, SF10/b, SF10/c, SF11/c Laser rangefinders.
@@ -145,10 +147,13 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/sfxx_lidar.html
 ### Examples
 
 Attempt to start driver on a specified serial device.
+
 ```
 lightware_laser_serial start -d /dev/ttyS1
 ```
+
 Stop driver
+
 ```
 lightware_laser_serial stop
 ```
@@ -170,19 +175,20 @@ lightware_laser_serial <command> [arguments...]
 
 Source: [drivers/distance_sensor/lightware_sf45_serial](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/lightware_sf45_serial)
 
-
 ### Description
 
 Serial bus driver for the Lightware SF45/b Laser rangefinder.
 
-
 ### Examples
 
 Attempt to start driver on a specified serial device.
+
 ```
 lightware_sf45_serial start -d /dev/ttyS1
 ```
+
 Stop driver
+
 ```
 lightware_sf45_serial stop
 ```
@@ -201,7 +207,6 @@ lightware_sf45_serial <command> [arguments...]
 ## ll40ls
 
 Source: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ll40ls)
-
 
 ### Description
 
@@ -287,7 +292,6 @@ mb12xx <command> [arguments...]
 
 Source: [drivers/distance_sensor/pga460](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/pga460)
 
-
 ### Description
 
 Ultrasonic range finder driver that handles the communication with the device and publishes the distance via uORB.
@@ -345,13 +349,11 @@ srf02 <command> [arguments...]
 
 Source: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/srf05)
 
+### Description
 
-  ### Description
+Driver for HY-SRF05 / HC-SR05 and HC-SR04 rangefinders.
 
-  Driver for HY-SRF05 / HC-SR05 and HC-SR04 rangefinders.
-
-  The sensor/driver must be enabled using the parameter SENS_EN_HXSRX0X.
-
+The sensor/driver must be enabled using the parameter SENS_EN_HXSRX0X.
 
 ### Usage {#srf05_usage}
 
@@ -374,7 +376,6 @@ srf05 <command> [arguments...]
 ## teraranger
 
 Source: [drivers/distance_sensor/teraranger](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/teraranger)
-
 
 ### Description
 
@@ -436,7 +437,6 @@ tf02pro <command> [arguments...]
 
 Source: [drivers/distance_sensor/tfmini](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/tfmini)
 
-
 ### Description
 
 Serial bus driver for the Benewake TFmini LiDAR.
@@ -448,10 +448,13 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/tfmini.html
 ### Examples
 
 Attempt to start driver on a specified serial device.
+
 ```
 tfmini start -d /dev/ttyS1
 ```
+
 Stop driver
+
 ```
 tfmini stop
 ```
@@ -477,7 +480,6 @@ tfmini <command> [arguments...]
 
 Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/distance_sensor/ulanding_radar)
 
-
 ### Description
 
 Serial bus driver for the Aerotenna uLanding radar.
@@ -487,10 +489,13 @@ Setup/usage information: https://docs.px4.io/main/en/sensor/ulanding_radar.html
 ### Examples
 
 Attempt to start driver on a specified serial device.
+
 ```
 ulanding_radar start -d /dev/ttyS1
 ```
+
 Stop driver
+
 ```
 ulanding_radar stop
 ```
