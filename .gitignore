@@ -1,9 +1,11 @@
-CPACK_INSTALL_PREFIX
-src/drivers/actuators/vertiq_io/
-src/drivers/ins/microstrain/
-src/drivers/ins/sbgecom/
-src/drivers/uavcan/libdronecan/
-src/lib/rl_tools/
-src/lib/tensorflow_lite_micro/
-src/modules/mc_raptor/
-test/fuzztest/
+# Build folders
+build/
+# Python cache files
+**/__pycache__/
+# Temporary build assets
+Tools/module_config/__pycache__/
+Tools/msg/__pycache__/
+Tools/px4airframes/__pycache__/
+Tools/px4events/__pycache__/
+src/lib/heatshrink/__pycache__/
+src/lib/parameters/px4params/__pycache__/
