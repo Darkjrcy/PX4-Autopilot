@@ -80,6 +80,7 @@ px4_add_romfs_files(
 	4009_gz_r1_rover
 	4010_gz_x500_mono_cam
 	4011_gz_lawnmower
+	4012_gz_x500_mpc
 	4013_gz_x500_lidar_2d
 	4014_gz_x500_mono_cam_down
 	4016_gz_x500_lidar_down
