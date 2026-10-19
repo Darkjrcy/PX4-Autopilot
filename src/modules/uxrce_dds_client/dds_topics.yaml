@@ -108,6 +108,10 @@ publications:
     type: px4_msgs::msg::GimbalDeviceAttitudeStatus
     rate_limit: 20.
 
+  # Topic added to recieve the actuatr motos status
+  - topic: /fmu/out/actuator_motors
+    type: px4_msgs::msg::ActuatorMotors
+
 # Create uORB::Publication
 subscriptions:
   - topic: /fmu/in/register_ext_component_request
