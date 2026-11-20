@@ -247,9 +247,10 @@ void GZBridge::magnetometerCallback(const gz::msgs::Magnetometer &msg)
 	// FIMEX: once we're on jetty or later
 	// The magnetometer plugin publishes in units of gauss and in a weird left handed coordinate system
 	// https://github.com/gazebosim/gz-sim/pull/2460
-	report.x = -msg.field_tesla().y();
-	report.y = -msg.field_tesla().x();
-	report.z = msg.field_tesla().z();
+	static constexpr double TESLA_TO_GAUSS = 1.0e4;
+	report.x = msg.field_tesla().x() * TESLA_TO_GAUSS;
+	report.y = -msg.field_tesla().y() * TESLA_TO_GAUSS;
+	report.z = -msg.field_tesla().z() * TESLA_TO_GAUSS;
 
 	_sensor_mag_pub.publish(report);
 }
